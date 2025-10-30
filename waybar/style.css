@@ -1,0 +1,179 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+* {
+  font-size: 13px;
+  font-family: "JetBrainsMono NF";
+  font-weight: 500;
+}
+
+window#waybar {
+  all: unset;
+  background-color: @background;
+  border-bottom: 1px solid alpha(@color8, 0.3);
+}
+
+.modules-left {
+  padding: 0px 15px;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.modules-center {
+  padding: 0px 15px;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.modules-right {
+  padding: 0px 15px;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+tooltip {
+  background: @background;
+  color: @color7;
+}
+
+/* Modules styling */
+#custom-notification {
+  padding: 0px 5px;
+  transition: all .3s ease;
+  color: @color7;
+}
+
+#clock {
+  padding: 4px 0px;
+  color: @color15;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+#custom-pacman {
+  padding: 0px 5px;
+  transition: all .3s ease;
+  color: @color7;
+}
+
+/* Workspaces styling with icons */
+#workspaces {
+  padding: 0px 5px;
+  text-shadow: none;
+}
+
+#workspaces button {
+  all: unset;
+  margin: 0px 5px;
+  padding: 4px 8px;
+  color: @color7;
+  background: transparent;
+  border-radius: 4px;
+  transition: all .2s;
+  min-width: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+#workspaces button:hover {
+  color: @color15;
+  background: alpha(@color8, 0.3);
+}
+
+/* Workspace ativa - DESTAQUE MÁXIMO */
+#workspaces button.active {
+  color: @background;
+  background: @color2;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 8px alpha(@color2, 0.5);
+  padding: 4px 12px;
+  margin: 0px 3px;
+}
+
+/* Workspaces vazias */
+#workspaces button.empty {
+  color: @color5;
+  background: transparent;
+}
+
+#workspaces button.empty:hover {
+  color: @color7;
+  background: alpha(@color8, 0.2);
+}
+
+/* Modules styling - clean and minimal */
+#bluetooth,
+#network,
+#battery,
+#custom-notification {
+  padding: 4px 8px;
+  color: @color12;
+  background: transparent;
+  font-size: 13px;
+}
+
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#custom-notification:hover {
+  color: @color15;
+  background: alpha(@color8, 0.3);
+  border-radius: 4px;
+}
+
+#battery.charging {
+  color: @color12;
+}
+
+#battery.warning:not(.charging) {
+  color: @color10;
+}
+
+#battery.critical:not(.charging) {
+  color: @color8;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Static modules - no expandable group */
+#custom-colorpicker,
+#cpu,
+#memory,
+#custom-brightness,
+#pulseaudio,
+#backlight,
+#custom-weather {
+  padding: 0px 8px;
+  transition: all .3s ease;
+  color: @color7;
+}
+
+/* Tray */
+#tray {
+  padding: 0px 5px;
+  transition: all .3s ease;
+}
+
+#tray menu * {
+  padding: 0px 5px;
+  transition: all .3s ease;
+}
+
+#tray menu separator {
+  padding: 0px 5px;
+  transition: all .3s ease;
+}
+
+/* Blink animation for critical battery */
+@keyframes blink {
+  to {
+    background-color: @color8;
+    color: @color15;
+  }
+}

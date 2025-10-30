@@ -1,0 +1,197 @@
+{
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": [ "hyprland/workspaces","custom/pacman", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": [ "cpu", "memory", "custom/brightness", "pulseaudio", "custom/weather", "bluetooth", "network", "battery", "custom/notification"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "on-click": "activate",
+        "format-icons": {
+            "1": "󰈹",
+            "2": "󰖟", 
+            "3": "󰘐",
+            "4": "󰎄",
+            "5": "󰓇",
+            "6": "󰊗",
+            "7": "󰍳",
+            "8": "󰎆",
+            "9": "󰊪",
+            "10": "󰘮",
+
+        },
+        
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "󰂚",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightness-level increase 5",
+        "on-scroll-down": "brightness-level decrease 5 "
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%d/%m/%Y}",
+        "interval": 1,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#e5e5e5'><b>{}</b></span>",
+                "days": "<span color='#cccccc'><b>{}</b></span>",
+                "weeks": "<span color='#999999'><b>S{}</b></span>",
+                "weekdays": "<span color='#b8b8b8'><b>{}</b></span>",
+                "today": "<span color='#666666'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰈁 Conectado",
+        "format-disconnected": "󰤭 Desconectado",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "Via {gwaddr} 󰊗",
+        "tooltip-format-disconnected": "Desconectado",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIP: {ipaddr}\nVelocidade: {frequency}MHz",
+        "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nVelocidade: {bandwidthUpBits}/{bandwidthDownBits}",
+        "on-click-right": "kitty nmtui"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s)",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s)\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)\n{device_address}",
+        "on-click": "bluetoothctl power toggle",
+        "on-click-right": "blueman-manager"
+    },
+
+    "battery": {
+        "interval": 30,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󱘖",
+        "format-alt": "{time} {icon}",
+        "format-good": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}\nPotência: {power}W"
+    },
+
+    "custom/pacman": {
+        "format": "󰮯 {}",
+        "interval": 3600,
+        "exec": "checkupdates 2>/dev/null | wc -l    ",
+        "exec-if": "exit 0",
+        "on-click": "kitty sh -c 'yay -Syu; echo Concluído - Pressione enter para sair; read'; pkill -SIGRTMIN+8 waybar",
+        "signal": 8,
+        "tooltip": true,
+        "tooltip-format": "{} atualizações disponíveis"
+    },
+
+    "custom/colorpicker": {
+        "format": "󰴱",
+        "tooltip": true,
+        "tooltip-format": "Seletor de Cores",
+        "on-click": "hyprpicker -a && notify-send 'Cor copiada!' 'A cor foi copiada para a área de transferência'"
+    },
+
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "CPU: {usage}%\nFrequência: {avg_frequency}GHz"
+    },
+
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "RAM: {used:0.1f}G/{total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G"
+    },
+
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "interval": 30,
+        "tooltip": true,
+        "tooltip-format": "Disco: {used}/{total} ({percentage_used}%)\nDisponível: {free}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂰 {icon} {volume}%",
+        "format-bluetooth-muted": "󰂰 󰝟",
+        "format-muted": "󰝟",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
+            "phone": "󰄜",
+            "portable": "󰄜",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip": true,
+        "tooltip-format": "Volume: {volume}%\nDispositivo: {desc}"
+    },
+  
+
+"custom/weather": {
+    "exec": "~/.config/waybar/scripts/weather_info.sh",
+    "interval": 1800,
+    "return-type": "json",
+    "format": "{text}",
+    "tooltip": true,
+    "exec-if": "ping -c1 google.com > /dev/null 2>&1"
+},
+
+
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true
+    }
+}
