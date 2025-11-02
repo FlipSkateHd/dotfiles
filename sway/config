@@ -16,12 +16,12 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu rofi -show drun
+set $menu wofi --show drun -i 
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Images/wallpapers/eink_dark.jpg fill
+output * background ~/.config/wallpapers/winXpwallpaper.jpg fill
 
 
 #
@@ -262,42 +262,37 @@ bindsym $mod+r mode "resize"
 #    }
 #}
 
-
-### Gaps
-gaps inner 8
-gaps outer 1
-default_border none
-default_floating_border none
-
-
-
-### Borders (Tema Graphite - Foco em Branco)
-#                               border  backgr. text    indicator child_border
-client.focused                  #ffffff #262626 #ffffff #ffffff #ffffff
-client.focused_inactive         #585858 #000000 #d4d4d4 #585858 #585858
-client.unfocused                #585858 #000000 #d4d4d4 #585858 #585858
-client.urgent                   #646464 #000000 #ffffff #646464 #646464
-
-
 #
-# Status Bar:
+# Setting gaps:
 #
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    position top
-#
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-#   status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-#
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
+gaps inner 5
+gaps outer 5
+smart_gaps on
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #E0E0E0 #000080 #ffffff #E0E0E0 #E0E0E0
+  client.focused_inactive #404040 #c0c0c0 #000000 #404040 #c0c0c0
+  client.unfocused        #4c4c4c #c0c0c0 #000000 #4c4c4c #4c4c4c
+  client.urgent           #000080 #000080 #000080 #000080 #000080
+  client.placeholder      #000000 #0c0c0c #000000 #000000 #000000
+  client.background       #c0c0c0
 
+# shadows enable
+# shadow_blur_radius 5
+# shadow_color #0c0c0c
+# blur enable
+# blur_passes 1
+# blur_radius 4
+# corner_radius 2
+# default_dim_inactive .1
+# titlebar_separator enable
 
+# for_window [class=".*"] tabbed enable, border normal
+# for_window [app_id=".*"] tabbed enable, border normal
+for_window [class="FLTK"] floating enable, border normal
+for_window [app_id="galculator"] floating enable, border normal
+default_border normal
+smart_borders on
 bar {
  	swaybar_command waybar
 }
