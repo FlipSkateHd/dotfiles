@@ -1,179 +1,248 @@
-@import url('../../.cache/wal/colors-waybar.css');
-
 * {
-  font-size: 13px;
-  font-family: "JetBrainsMono NF";
-  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  min-height: 0;
 }
 
 window#waybar {
-  all: unset;
-  background-color: @background;
-  border-bottom: 1px solid alpha(@color8, 0.3);
+  background: #c0c0c0;
+  color: #000000;
+  box-shadow: 0px 0px 3px 0px #00000;
+  border-bottom: solid 1px #404040;
+
 }
 
-.modules-left {
-  padding: 0px 15px;
-  margin: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.modules-center {
-  padding: 0px 15px;
-  margin: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.modules-right {
-  padding: 0px 15px;
-  margin: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-tooltip {
-  background: @background;
-  color: @color7;
-}
-
-/* Modules styling */
-#custom-notification {
-  padding: 0px 5px;
-  transition: all .3s ease;
-  color: @color7;
-}
-
-#clock {
-  padding: 4px 0px;
-  color: @color15;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-#custom-pacman {
-  padding: 0px 5px;
-  transition: all .3s ease;
-  color: @color7;
-}
-
-/* Workspaces styling with icons */
-#workspaces {
-  padding: 0px 5px;
-  text-shadow: none;
+#scratchpad {
+  padding: 5px 10px;
+  margin: 5px 3px;
+  background: #c0c0c0;
+  color: #000000;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
 }
 
 #workspaces button {
-  all: unset;
-  margin: 0px 5px;
-  padding: 4px 8px;
-  color: @color7;
-  background: transparent;
-  border-radius: 4px;
-  transition: all .2s;
-  min-width: 20px;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 5px 10px;
+  margin: 5px 3px;
+  background: #c0c0c0;
+  color: #000000;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+
 }
 
 #workspaces button:hover {
-  color: @color15;
-  background: alpha(@color8, 0.3);
+  box-shadow: 0px 0px 0px;
+  text-shadow: none;
+  background: #E0E0E0;
 }
 
-/* Workspace ativa - DESTAQUE MÁXIMO */
-#workspaces button.active {
-  color: @background;
-  background: @color2;
-  border-radius: 10px;
+#workspaces button.focused {
+  background: #E0E0E0;
+  color: #000000;
+}
+
+#custom-start {
+  padding: 5px 5px;
+  margin: 5px 3px;
   font-weight: bold;
-  box-shadow: 0 0 8px alpha(@color2, 0.5);
-  padding: 4px 12px;
-  margin: 0px 3px;
+  background: url('/home/fribbit/.icons/Chicago95-tux/places/scalable/start-here.svg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
 }
 
-/* Workspaces vazias */
-#workspaces button.empty {
-  color: @color5;
-  background: transparent;
+#custom-start:hover {
+  background: url('/home/fribbit/.icons/Chicago95-tux/places/scalable/start-here.svg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 0px 0px;
+  text-shadow: none;
 }
 
-#workspaces button.empty:hover {
-  color: @color7;
-  background: alpha(@color8, 0.2);
+#custom-start:active {
+  background: url('/home/fribbit/.icons/Chicago95-tux/places/scalable/start-here.svg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0px 0px 0px;
+  text-shadow: none;
+  background-color: #f0f0f0;
 }
 
-/* Modules styling - clean and minimal */
-#bluetooth,
-#network,
+#window {
+  padding: 5px 10px;
+  margin: 5px 3px;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+}
+
 #battery,
-#custom-notification {
-  padding: 4px 8px;
-  color: @color12;
-  background: transparent;
-  font-size: 13px;
+#network,
+#bluetooth,
+#custom-notification,
+#custom-weather,
+#custom-pacman {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/devices/scalable/battery.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#bluetooth:hover,
-#network:hover,
-#battery:hover,
-#custom-notification:hover {
-  color: @color15;
-  background: alpha(@color8, 0.3);
-  border-radius: 4px;
+#backlight {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/status/scalable/sunny.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#battery.charging {
-  color: @color12;
+#wireplumber {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/status/scalable/audio-volume-high.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#battery.warning:not(.charging) {
-  color: @color10;
+#pulseaudio {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/status/scalable/audio-volume-high.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#battery.critical:not(.charging) {
-  color: @color8;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#memory {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/devices/scalable/computer-laptop.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-/* Static modules - no expandable group */
-#custom-colorpicker,
-#cpu,
-#memory,
-#custom-brightness,
-#pulseaudio,
-#backlight,
-#custom-weather {
-  padding: 0px 8px;
-  transition: all .3s ease;
-  color: @color7;
+#cpu {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/devices/scalable/processor.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-/* Tray */
-#tray {
-  padding: 0px 5px;
-  transition: all .3s ease;
+#temperature {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #c0c0c0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #404040;
+  box-shadow: 1px 1px 1px 0px #000000;
+  background-image: url('/home/fribbit/.icons/Chicago95-tux/status/scalable/weather-few-clouds.svg');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#tray menu * {
-  padding: 0px 5px;
-  transition: all .3s ease;
+#clock {
+  padding: 5px 5px;
+  margin: 5px 3px;
+  background-color: #b0b0b0;
+  color: #000000;
+  font-family: "Sans Serif", "Font Awesome 5 Free";
+  font-size: medium;
+  border-left: 0.5px solid #000000;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-shadow: -1px -0.5px 0px 0px #000000;
+  background-image: url("/home/fribbit/.icons/Chicago95-tux/apps/scalable/clock.svg");
+  background-position: right;
+  background-size: 13%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
 }
 
-#tray menu separator {
-  padding: 0px 5px;
-  transition: all .3s ease;
-}
+/*#battery button:hover,*/
 
-/* Blink animation for critical battery */
-@keyframes blink {
-  to {
-    background-color: @color8;
-    color: @color15;
-  }
-}
+/*#pulseaudio:hover {
+    background-color: #E0E0E0;
+    box-shadow: 0px 0px 0px;
+}*/
